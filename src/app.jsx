@@ -1,4 +1,3 @@
-
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
@@ -15,7 +14,7 @@ import {About} from "./about/about";
 export default function App() {
   return (
     <BrowserRouter>
-    <body className="bg-dark text-light">
+    <div className="body bg-dark text-light">
       <header className="container-fluid">
       <nav className="navbar fixed-top navbar-dark">
         <div className="navbar-brand">Simon<sup>&reg;</sup></div>
@@ -42,19 +41,22 @@ export default function App() {
         <NavLink className="text-reset" to="https://github.com/webprogramming260/simon-css">Source</NavLink>
       </div>
     </footer>
-    </body>
-    </BrowserRouter>
-  );
+    </div>
 
-  <Routes>
+<Routes>
   <Route path='/' element={<Login />} exact />
   <Route path='/play' element={<Play />} />
   <Route path='/scores' element={<Scores />} />
   <Route path='/about' element={<About />} />
   <Route path='*' element={<NotFound />} />
-  </Routes>
+</Routes>
+    </BrowserRouter>
+  );
 }
 
-function NotFound() {
+
+export function NotFound() {
   return <main className="container-fluid bg-secondary text-center">404: Return to sender. Address unknown.</main>;
 }
+
+
