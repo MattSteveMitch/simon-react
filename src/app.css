@@ -42,13 +42,7 @@ footer a {
 }
 
 @media (max-height: 600px) {
-  header {
-    display: none;
-  }
-  footer {
-    display: none;
-  }
   main {
-    flex: 1 100vh;
+    flex: 1 1 100vh;
   }
 }

@@ -2,25 +2,22 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
-
-import {BrowserRouter, NavLink, Route, Routes} from 'react-router-dom';
-import {Login} from "./login/login";
-import {Play} from "./play/play";
-import {Scores} from "./scores/scores";
-import {About} from "./about/about";
-
-
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { Login } from './login/login';
+import { Play } from './play/play';
+import { Scores } from './scores/scores';
+import { About } from './about/about';
 
 export default function App() {
   return (
-    <BrowserRouter>
     <div className="body bg-dark text-light">
+    <BrowserRouter>
       <header className="container-fluid">
       <nav className="navbar fixed-top navbar-dark">
-        <div className="navbar-brand">Simon<sup>&reg;</sup></div>
+        <NavLink className="navbar-brand" href="#">Simon<sup>&reg;</sup></NavLink>
         <menu className="navbar-nav">
           <li className="nav-item">
-            <NavLink className="nav-link" to="">Home</NavLink>
+            <NavLink className="nav-link active" to="">Login</NavLink>
           </li>
           <li className="nav-item">
             <NavLink className="nav-link" to="play">Play</NavLink>
@@ -33,30 +30,23 @@ export default function App() {
           </li>
         </menu>
       </nav>
-    </header>
+      </header>
+
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="play" element={<Play />} />
+        <Route path="scores" element={<Scores />} />
+        <Route path="about" element={<About />} />
+      </Routes>
+      
+    </BrowserRouter>
 
     <footer className="bg-dark text-white-50">
       <div className="container-fluid">
         <span className="text-reset">Author Name(s)</span>
-        <NavLink className="text-reset" to="https://github.com/webprogramming260/simon-css">Source</NavLink>
+        <a className="text-reset" href="https://github.com/webprogramming260/simon-css">Source</a>
       </div>
     </footer>
     </div>
-
-<Routes>
-  <Route path='/' element={<Login />} exact />
-  <Route path='/play' element={<Play />} />
-  <Route path='/scores' element={<Scores />} />
-  <Route path='/about' element={<About />} />
-  <Route path='*' element={<NotFound />} />
-</Routes>
-    </BrowserRouter>
   );
 }
-
-
-export function NotFound() {
-  return <main className="container-fluid bg-secondary text-center">404: Return to sender. Address unknown.</main>;
-}
-
-
