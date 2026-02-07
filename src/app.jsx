@@ -17,7 +17,7 @@ export default function App() {
         <NavLink className="navbar-brand" href="#">Simon<sup>&reg;</sup></NavLink>
         <menu className="navbar-nav">
           <li className="nav-item">
-            <NavLink className="nav-link active" to="">Login</NavLink>
+            <NavLink className="nav-link" to="">Login</NavLink>
           </li>
           <li className="nav-item">
             <NavLink className="nav-link" to="play">Play</NavLink>
@@ -37,6 +37,7 @@ export default function App() {
         <Route path="play" element={<Play />} />
         <Route path="scores" element={<Scores />} />
         <Route path="about" element={<About />} />
+        <Route path="*" element={<NotFound />}/>
       </Routes>
       
     </BrowserRouter>
@@ -49,4 +50,12 @@ export default function App() {
     </footer>
     </div>
   );
+}
+
+function NotFound() {
+  return (
+    <main className="container-fluid bg-secondary text-center">
+      404: Return to sender. Address unknown.
+    </main>
+  )
 }
